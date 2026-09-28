@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robot-rl-playground"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "torch==2.5.1", "torchvision==0.20.1", "gymnasium>=0.29", "gym-hil>=0.1.14,<0.2", "wandb>=0.22,<1"]
+
+[project.optional-dependencies]
+pretrained = ["transformers>=5.3", "safetensors>=0.4"]
+test = ["pytest>=8"]
+
+[project.scripts]
+robot-rl = "robot_rl.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
